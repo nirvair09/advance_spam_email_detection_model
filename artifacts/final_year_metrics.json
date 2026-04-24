@@ -1,0 +1,54 @@
+{
+  "metrics": {
+    "baseline": {
+      "accuracy": 0.9796650717703349,
+      "f1": 0.9223744292237442,
+      "roc_auc": 0.9884014897395423
+    },
+    "final_neural": {
+      "accuracy": 0.9832535885167464,
+      "f1": 0.9363636363636364,
+      "roc_auc": 0.9952520718232044,
+      "precision": 0.9537037037037037,
+      "recall": 0.9196428571428571
+    },
+    "training": {
+      "best_epoch": 3,
+      "chosen_threshold": 0.2871433520665032,
+      "best_validation_f1": 0.9736842105258159
+    }
+  },
+  "classification_report": {
+    "0": {
+      "precision": 0.9876373626373627,
+      "recall": 0.9930939226519337,
+      "f1-score": 0.990358126721763,
+      "support": 724.0
+    },
+    "1": {
+      "precision": 0.9537037037037037,
+      "recall": 0.9196428571428571,
+      "f1-score": 0.9363636363636364,
+      "support": 112.0
+    },
+    "accuracy": 0.9832535885167464,
+    "macro avg": {
+      "precision": 0.9706705331705332,
+      "recall": 0.9563683898973954,
+      "f1-score": 0.9633608815426997,
+      "support": 836.0
+    },
+    "weighted avg": {
+      "precision": 0.9830912265122792,
+      "recall": 0.9832535885167464,
+      "f1-score": 0.983124415094837,
+      "support": 836.0
+    }
+  },
+  "dataset": {
+    "total_samples": 5572,
+    "train_samples": 3900,
+    "validation_samples": 836,
+    "test_samples": 836
+  }
+}
