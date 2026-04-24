@@ -199,6 +199,28 @@ The script will:
 - generate graphs in `assets/final_year_output/`
 - save metrics and the final artifact bundle in `artifacts/`
 
+## Running the Web Demo
+
+A simple HTML interface is included so you can type a message and get a `ham` or `spam` prediction from the saved model.
+
+Files:
+
+- `app.py`
+- `templates/index.html`
+- `static/styles.css`
+
+Run:
+
+```bash
+python app.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:5000
+```
+
 ## Saved Artifacts
 
 - `tfidf.pkl` - trained TF-IDF vectorizer

@@ -1,0 +1,92 @@
+\documentclass[9pt,letterpaper]{article}
+
+\usepackage[margin=0.42in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{fontawesome5}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.0em, itemsep=0.5pt, topsep=1pt, parsep=0pt, partopsep=0pt}
+
+\definecolor{accent}{RGB}{27, 64, 114}
+\definecolor{textgray}{RGB}{70, 70, 70}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\vspace{2pt}\titlerule]
+\titlespacing*{\section}{0pt}{5pt}{1pt}
+
+\newcommand{\resumeHeader}[1]{{\LARGE\bfseries\color{accent} #1}}
+\newcommand{\roleline}[4]{
+  \textbf{#1} \hfill {\small #2} \\
+  {\small\textit{#3}} \hfill {\small\textit{#4}} \\
+}
+\newcommand{\projectline}[3]{
+  #1 \hfill {\small #2} \\
+  {\small\textit{#3}} \\
+}
+
+\begin{document}
+
+\begin{center}
+    \resumeHeader{Chandradeep Roy}\\[5pt]
+    {\footnotesize
+    \faPhone\ +91-7029308372 \hspace{10pt}
+    \faEnvelope\ chandradeeproy98@gmail.com \hspace{10pt}
+    \faLinkedin\ LinkedIn \hspace{10pt}
+    \faGithub\ GitHub \hspace{10pt}
+    LeetCode \hspace{10pt}
+    GeeksforGeeks
+    }
+\end{center}
+
+{\footnotesize\color{textgray}
+Fresher AI/ML candidate from IIT Patna with hands-on experience in machine learning, NLP, recommendation systems, and data analytics using Python, scikit-learn, XGBoost, Transformers, SQL, and visualization tools.
+}
+
+\section*{Education}
+\roleline{Indian Institute of Technology Patna}{2022 -- 2026 (Expected)}{B.Tech in Metallurgical and Materials Engineering}{Patna, India}
+
+\section*{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}p{0.22\textwidth} X@{}}
+Languages & Python, SQL, C++, C, JavaScript \\
+Machine Learning & scikit-learn, XGBoost, classification, regression, feature engineering, model evaluation, calibration \\
+NLP / AI & TF-IDF, BERT embeddings, text preprocessing, SHAP, Transformers, PyTorch, Jupyter, Google Colab \\
+Recommendation / Data & clustering, similarity modeling, ETL, exploratory data analysis, dashboarding, statistical analysis \\
+Data / BI & Pandas, NumPy, Matplotlib, Seaborn, Power BI, Excel \\
+Databases / Tools & MySQL, PostgreSQL, SQLite, MongoDB, Git, GitHub, VS Code, Docker \\
+\end{tabularx}
+
+\section*{Selected Projects}
+\projectline{\textbf{\href{https://github.com/nirvair09/advance_spam_email_detection_model}{Advanced Spam Email / SMS Detection}}}{Current ML Project}{Python, scikit-learn, XGBoost, Transformers, PyTorch, SHAP}
+\begin{itemize}
+    \item Built an end-to-end spam classification pipeline on 5,572 labeled SMS messages using feature engineering, model comparison, and explainability.
+    \item Evaluated \textbf{TF-IDF + Logistic Regression}, handcrafted features, and a \textbf{hybrid TF-IDF + BERT + XGBoost} model; achieved \textbf{ROC-AUC 0.9967} and \textbf{98.83\%} graph-augmented accuracy with calibration and SHAP.
+\end{itemize}
+
+\projectline{\textbf{\href{https://github.com/nirvair09/movie-rec}{Movie Recommendation System}}}{ML Project}{Python, recommendation systems, data preprocessing, similarity modeling}
+\begin{itemize}
+    \item Built a movie recommendation system using data preprocessing, feature extraction, and similarity-based recommendation logic for relevant content suggestions.
+\end{itemize}
+
+\projectline{Customer Segmentation and Marketing Analysis}{Dec 2024 -- Jan 2025}{Python, Pandas, scikit-learn, Plotly, Power BI}
+\begin{itemize}
+    \item Performed customer segmentation using clustering, feature engineering, and visualization to identify actionable groups for targeted marketing campaigns.
+\end{itemize}
+
+\projectline{Vendor Performance and Banking Data Analysis}{2025}{Python, SQL, MySQL, Pandas, Power BI}
+\begin{itemize}
+    \item Built analytics workflows for vendor evaluation and customer-risk analysis using ETL, SQL aggregation, dashboarding, and insight-driven reporting.
+\end{itemize}
+
+\section*{Achievements}
+\begin{itemize}
+    \item Ranked in the \textbf{top 2\% nationally} among candidates in JEE Advanced and JEE Main 2022.
+    \item Solved \textbf{1200+ problems} across coding platforms; GeeksforGeeks: \textbf{877+} solved, score \textbf{3233}, \textbf{406-day} POTD streak, Rank \textbf{4} at IIT Patna; LeetCode: \textbf{342+} solved with \textbf{62\%} acceptance.
+\end{itemize}
+
+\end{document}

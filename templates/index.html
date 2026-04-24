@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spam Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <p class="eyebrow">AI/ML Project Demo</p>
+      <h1>Spam Message Classifier</h1>
+      <p class="subtitle">
+        Type any SMS or email-style text below and let the trained model predict whether it is ham or spam.
+      </p>
+
+      <label for="message" class="label">Enter Message</label>
+      <textarea id="message" placeholder="Example: Congratulations! You have won a free ticket. Click here to claim now."></textarea>
+
+      <div class="actions">
+        <button id="predictButton">Check Message</button>
+        <button id="clearButton" class="secondary">Clear</button>
+      </div>
+
+      <section id="result" class="result hidden">
+        <div class="result-head">
+          <span id="badge" class="badge">Result</span>
+          <span id="confidence" class="confidence"></span>
+        </div>
+        <p id="resultText" class="result-text"></p>
+        <p id="thresholdText" class="threshold-text"></p>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const messageInput = document.getElementById("message");
+    const predictButton = document.getElementById("predictButton");
+    const clearButton = document.getElementById("clearButton");
+    const resultCard = document.getElementById("result");
+    const badge = document.getElementById("badge");
+    const confidence = document.getElementById("confidence");
+    const resultText = document.getElementById("resultText");
+    const thresholdText = document.getElementById("thresholdText");
+
+    function showResult(data) {
+      resultCard.classList.remove("hidden", "result-ham", "result-spam");
+      const isSpam = data.label === "spam";
+
+      badge.textContent = isSpam ? "Spam" : "Ham";
+      confidence.textContent = `Spam confidence: ${data.spam_probability}%`;
+      resultText.textContent = isSpam
+        ? "This message looks suspicious and is predicted as spam."
+        : "This message looks safe and is predicted as ham.";
+      thresholdText.textContent = `Model threshold used: ${data.threshold_used}`;
+
+      resultCard.classList.add(isSpam ? "result-spam" : "result-ham");
+    }
+
+    function showError(message) {
+      resultCard.classList.remove("hidden", "result-ham", "result-spam");
+      badge.textContent = "Error";
+      confidence.textContent = "";
+      resultText.textContent = message;
+      thresholdText.textContent = "";
+    }
+
+    async function predictMessage() {
+      const message = messageInput.value.trim();
+
+      try {
+        const response = await fetch("/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          showError(data.error || "Prediction failed.");
+          return;
+        }
+
+        showResult(data);
+      } catch (error) {
+        showError("Could not connect to the prediction server.");
+      }
+    }
+
+    predictButton.addEventListener("click", predictMessage);
+    clearButton.addEventListener("click", () => {
+      messageInput.value = "";
+      resultCard.classList.add("hidden");
+    });
+  </script>
+</body>
+</html>
